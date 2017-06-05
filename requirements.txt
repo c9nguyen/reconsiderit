@@ -7,7 +7,6 @@ ExifRead==2.1.2
 Flask==0.10.1
 Flask-SocketIO==2.8.6
 Flask-Sockets==0.2.1
-fluendo-eula==0.6
 functools32==3.2.3.post2
 future==0.15.2
 get==0.0.0
