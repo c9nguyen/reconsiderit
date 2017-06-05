@@ -26,7 +26,6 @@ pbr==3.0.0
 pi==0.1.2
 Pillow==2.9.0
 pycrypto==2.6.1
-pygobject==3.20.0
 python-apt==1.1.0b1
 python-debian==0.1.27
 python-distutils-extra==2.39
