@@ -57,7 +57,7 @@ class ChatBackend(object):
         """Send given data to the registered client.
         Automatically discards invalid connections."""
         try:
-            print(data)
+            print(data["text"])
             client.send(data)
         except Exception:
             self.clients.remove(client)
