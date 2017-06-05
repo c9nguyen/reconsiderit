@@ -3,7 +3,6 @@ chardet==2.3.0
 clarifai==2.0.20
 click==6.7
 configparser==3.5.0
-defer==1.0.6
 ExifRead==2.1.2
 Flask==0.10.1
 Flask-SocketIO==2.8.6
