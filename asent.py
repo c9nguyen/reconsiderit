@@ -31,19 +31,14 @@ def myTokenizer(s):
 ######################################################################################################
 ######################################################################################################
 ######################################################################################################
-import math
+
 # Create input matrices
 def tokensToVector(tokens, label):
     x = np.zeros(len(wordToIndexMap) + 1) # last element is for the label
-    a = tokens
     for t in tokens:
         i = wordToIndexMap[t]
         x[i] += 1
-    b = x.sum()
-    # print b
     x = x / x.sum() # normalize it before setting label 
-    # if math.isnan(x.sum()):
-    #     print a
     x[-1] = label
 
     return x
@@ -84,17 +79,6 @@ with open('nltk_data/twitter_samples/negative_tweets.json', 'r') as json_file:
     for line in json_file:
         negReviews.append(json.loads(line))
 
-#posReviews = open('nltk_data/twitter_samples/positive_tweets.json')
-
-#posReviews = posReviews.findAll('review_text')
-
-#negReviews = open('nltk_data/twitter_samples/negative_tweets.json')
-#negReviews = negReviews.findAll('review_text')
-
-#np.random.shuffle(posReviews)
-#posReviews = posReviews[:len(negReviews)]
-
-
 
 # Word-to-index map so that we can make our word-frequency vectors later
 # Save the tokenized versions so we don't have to tokenize again later
@@ -122,9 +106,6 @@ for review in negReviews:
             wordToIndexMap[token] = currentIdx
             currentIdx += 1
 
-
-#print(wordToIndexMap)
-
 N = len(positiveTokenizedArray) + len(negativeTokenizedArray)
 
 data = np.zeros((N, len(wordToIndexMap) + 1))
@@ -151,12 +132,10 @@ Y = data[:,-1]
 # last 100 rows will be test
 Xtrain = X[:-1000,]
 Ytrain = Y[:-1000,]
-# Xtest = X[-1000:,]
-# Ytest = Y[-1000:,]
+
 
 model = LogisticRegression()
 model.fit(Xtrain, Ytrain)
-#print "Classification rate:", model.score(Xtest, Ytest)
 
 
 # look at the weights for each word
